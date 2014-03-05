@@ -15,11 +15,10 @@ object ScalaSettings extends Plugin {
         "-deprecation",
         "-unchecked",
         "-Ywarn-all",
-        "-Xlint"
-        "-Xfatal-warnings",
+        "-Xlint",
         "-feature",
         "-language:_"
-      )
+      ),
       javacOptions ++= Seq(
         "-source", "1.6",
         "-target", "1.6"
