@@ -5,8 +5,6 @@ import sbt._
 import Keys._
 
 object ScalaSettings extends Plugin {
-  type Sett = Project.Setting[_]
-
   object scala {
     def settings = Seq(
       scalaVersion := "2.10.3",

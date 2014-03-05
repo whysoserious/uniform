@@ -2,7 +2,7 @@ organization := "au.com.cba.omnia"
 
 name := "uniform"
 
-scalaVersion := "2.9.2" // Note: this is an sbt plugin, must be compiled with sbt scala version.
+scalaVersion := "2.10.3"
 
 scalacOptions ++= Seq("-deprecation")
 
