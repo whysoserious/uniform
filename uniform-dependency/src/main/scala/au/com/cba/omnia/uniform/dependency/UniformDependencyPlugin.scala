@@ -3,6 +3,19 @@ package au.com.cba.omnia.uniform.dependency
 import sbt._, Keys._
 
 object UniformDependencyPlugin extends Plugin {
+  def uniformDependencySettings = Seq(
+    resolvers ++= Seq(
+      "snapshots" at "http://oss.sonatype.org/content/repositories/snapshots"
+    , "releases" at "http://oss.sonatype.org/content/repositories/releases"
+    , "Concurrent Maven Repo" at "http://conjars.org/repo"
+    , "Clojars Repository" at "http://clojars.org/repo"
+    , "Twitter Maven" at "http://maven.twttr.com"
+    , "Hadoop Releases" at "https://repository.cloudera.com/content/repositories/releases/"
+    , "cloudera" at "https://repository.cloudera.com/artifactory/cloudera-repos/"
+)
+    , "commbank-releases" at "http://commbank.artifactoryonline.com/commbank/ext-releases-local"
+  )
+
   object depend {
     object versions {
       def hadoop = "2.0.0-mr1-cdh4.3.0"
