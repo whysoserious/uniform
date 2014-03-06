@@ -8,7 +8,7 @@ import sbt._, Keys._
 
 object StandardProjectPlugin extends Plugin {
   object uniform {
-    def project(project: String, pkg: String) = List(
+    def project(project: String, pkg: String) = Seq[Sett](
       name := project,
       organization := "au.com.cba.omnia",
       rootPackage := pkg
