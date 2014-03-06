@@ -2,7 +2,7 @@ package au.com.cba.omnia.uniform.dependency
 
 import sbt._, Keys._
 
-object DependenciesPlugin extends Plugin {
+object UniformDependencyPlugin extends Plugin {
   object depend {
     object versions {
       def hadoop = "2.0.0-mr1-cdh4.3.0"
