@@ -2,13 +2,13 @@ import sbt._
 import Keys._
 
 object build extends Build {
-  type Sett = sbt.Def.Setting[_]
+  type Sett = sbt.Project.Setting[_]
 
   lazy val standardSettings: Seq[Sett] =
     Defaults.defaultSettings ++ Seq[Sett](
       organization := "au.com.cba.omnia"
     , sbtPlugin := true
-    , scalaVersion := "2.10.3"
+    , scalaVersion := "2.9.2"
     , scalacOptions := Seq(
         "-deprecation"
       , "-unchecked"
@@ -16,8 +16,6 @@ object build extends Build {
       , "-Ywarn-all"
       , "-Xlint"
       , "-Xfatal-warnings"
-      , "-feature"
-      , "-language:_"
       )
     )
 
@@ -45,16 +43,16 @@ object build extends Build {
   , settings = standardSettings ++ Seq[Sett](
       name := "uniform-thrift"
     , resolvers += Resolver.sonatypeRepo("releases")
-//    , addSbtPlugin("com.twitter" %% "scrooge-sbt-plugin" % "3.12.0")
+    , addSbtPlugin("com.twitter" %% "scrooge-sbt-plugin" % "3.12.0")
     )
-  )
+  ).dependsOn(dependency)
 
   lazy val assembly = Project(
     id = "assembly"
   , base = file("uniform-assembly")
   , settings = standardSettings ++ Seq[Sett](
       name := "uniform-assembly"
-    , addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.10.2")
+    , addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.9.2")
     )
   )
 

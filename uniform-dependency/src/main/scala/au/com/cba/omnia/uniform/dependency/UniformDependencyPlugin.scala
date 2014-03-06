@@ -19,8 +19,9 @@ object UniformDependencyPlugin extends Plugin {
       def scallop = "0.9.3"
       def pegdown = "1.2.1"
       def classutil = "1.0.2"
-      def scrooge = "3.11.2"
+      def scrooge = "3.12.0"
       def bijection = "0.6.0"
+      def libthrift = "0.8.0"
     }
 
     def omnia(project: String, version: String): Seq[ModuleID] =
@@ -83,9 +84,11 @@ object UniformDependencyPlugin extends Plugin {
       "org.rogach"               %% "scallop"                       % version
     )
 
-    def scrooge(scrooge: String = versions.scrooge, bijection: String = versions.bijection) = Seq(
+    def scrooge(scrooge: String = versions.scrooge, bijection: String = versions.bijection, libthrift: String = versions.libthrift) = Seq(
       "com.twitter"       %% "scrooge-core"                         % scrooge,
-      "com.twitter"       %% "bijection-scrooge"                    % bijection
+      "com.twitter"       %% "scrooge-runtime"                      % scrooge,
+      "com.twitter"       %% "bijection-scrooge"                    % bijection,
+      "org.apache.thrift" %  "libthrift"                            % libthrift
     )
   }
 }
