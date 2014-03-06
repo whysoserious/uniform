@@ -1,7 +1,7 @@
 uniform
 =======
 
-``
+```
 uniform: remaining the same in all cases and at all times; unchanging in form or character.
 ```
 
@@ -11,6 +11,14 @@ usage
 -----
 
 `uniform` helps provide a consistent set of scala settings across projects.
+
+To depend on it, add an entry to `project/plugins.sbt` with an appropriate repository configures:
+
+```
+resolvers += Resolver.url("commbank-releases-ivy", new URL("http://commbank.artifactoryonline.com/commbank/ext-releases-local-ivy"))(Patterns("[organization]/[module]_[scalaVersion]_[sbtVersion]/[revision]/[artifact](-[classifier])-[revision].[ext]"))
+
+addSbtPlugin("au.com.cba.omnia" % "uniform-core" % "$VERSION$")
+```
 
 Almost all functionality, is included by using the `uniform.project` command.
 
@@ -36,3 +44,41 @@ uniqueVersionSettings
 ```
 
 This will generate a unique build, consisiting of `${version}-${timestamp}-${commish}`.
+
+
+`uniform` flavours provide additional pre-canned configs for `assembly`, `thrift` and consistent dependency versions.
+
+a complete example
+------------------
+
+`project/plugins.sbt`
+
+```
+resolvers += Resolver.url("commbank-releases-ivy", new URL("http://commbank.artifactoryonline.com/commbank/ext-releases-local-ivy"))(Patterns("[organization]/[module]_[scalaVersion]_[sbtVersion]/[revision]/[artifact](-[classifier])-[revision].[ext]"))
+
+addSbtPlugin("au.com.cba.omnia" % "uniform-core" % "$VERSION$")
+
+addSbtPlugin("au.com.cba.omnia" % "uniform-thrift" % "$VERSION$")
+
+addSbtPlugin("au.com.cba.omnia" % "uniform-assembly" % "$VERSION$")
+
+addSbtPlugin("au.com.cba.omnia" % "uniform-dependency" % "$VERSION$")
+```
+
+`build.sbt`
+
+```
+uniform.project("project-name", "root.package")
+
+uniformThriftSettings
+
+uniformAssemblySettings
+```
+
+`version.sbt`
+
+```
+version in ThisBuild := "0.0.1"
+
+uniqueVersionSettings
+```
