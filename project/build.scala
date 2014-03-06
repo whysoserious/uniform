@@ -44,6 +44,8 @@ object build extends Build {
   , base = file("uniform-thrift")
   , settings = standardSettings ++ Seq[Sett](
       name := "uniform-thrift"
+    , resolvers += Resolver.sonatypeRepo("releases")
+//    , addSbtPlugin("com.twitter" %% "scrooge-sbt-plugin" % "3.12.0")
     )
   )
 
@@ -52,6 +54,7 @@ object build extends Build {
   , base = file("uniform-assembly")
   , settings = standardSettings ++ Seq[Sett](
       name := "uniform-assembly"
+    , addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.10.2")
     )
   )
 
