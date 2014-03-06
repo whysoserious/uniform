@@ -4,8 +4,8 @@ import sbt._, Keys._
 import sbtassembly.Plugin._, AssemblyKeys._
 
 object UniformAssemblyPlugin extends Plugin {
-  def uniformAssemblySettings =
-    assemblySettings ++ Seq(
+  def uniformAssemblySettings: Seq[Sett] =
+    assemblySettings ++ Seq[Sett](
       mergeStrategy in assembly <<= (mergeStrategy in assembly)(defaultMergeStrategy),
       test in assembly := {},
       (artifact in (Compile, assembly) ~= { art =>
