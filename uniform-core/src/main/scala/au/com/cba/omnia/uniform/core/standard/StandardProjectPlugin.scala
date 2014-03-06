@@ -12,6 +12,6 @@ object StandardProjectPlugin extends Plugin {
       name := project,
       organization := "au.com.cba.omnia",
       rootPackage := pkg
-    ) ++ scala.settings
+    ) ++ scala.settings ++ versionInfoSettings
   }
 }

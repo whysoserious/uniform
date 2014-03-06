@@ -3,7 +3,7 @@ package au.com.cba.omnia.uniform.dependency
 import sbt._, Keys._
 
 object UniformDependencyPlugin extends Plugin {
-  def uniformDependencySettings = Seq[Sett](
+  def uniformDependencySettings: Seq[Sett] = Seq[Sett](
     resolvers ++= Seq(
       "snapshots" at "http://oss.sonatype.org/content/repositories/snapshots"
     , "releases" at "http://oss.sonatype.org/content/repositories/releases"

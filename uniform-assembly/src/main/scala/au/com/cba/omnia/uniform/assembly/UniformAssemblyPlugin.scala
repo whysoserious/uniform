@@ -4,15 +4,14 @@ import sbt._, Keys._
 import sbtassembly.Plugin._, AssemblyKeys._
 
 object UniformAssemblyPlugin extends Plugin {
-  def uniformAssemblySettings =
-    assemblySettings ++ Seq(
+  def uniformAssemblySettings: Seq[Sett] =
+    assemblySettings ++ Seq[Sett](
       mergeStrategy in assembly <<= (mergeStrategy in assembly)(defaultMergeStrategy),
       test in assembly := {},
       (artifact in (Compile, assembly) ~= { art =>
         art.copy(`classifier` = Some("assembly"))
-      }),
-      addArtifact(artifact in (Compile, assembly), assembly)
-    )
+      })
+    ) ++  addArtifact(artifact in (Compile, assembly), assembly)
 
   def defaultMergeStrategy(old: String => MergeStrategy) =  (path: String) => path match {
     case "META-INF/NOTICE.txt" => MergeStrategy.rename
