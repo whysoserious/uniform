@@ -25,7 +25,7 @@ object VersionInfoPlugin extends Plugin {
       IO.write(txt, """VERSION=%s
                        |GIT=%s
                        |DATE=%s""".stripMargin.format(version, commit(base), timestamp(now)))
-      Seq(scala, txt)
+      Seq(scala)
     })
   )
 }
