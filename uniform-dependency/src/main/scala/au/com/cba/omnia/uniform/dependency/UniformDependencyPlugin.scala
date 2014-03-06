@@ -3,7 +3,7 @@ package au.com.cba.omnia.uniform.dependency
 import sbt._, Keys._
 
 object UniformDependencyPlugin extends Plugin {
-  def uniformDependencySettings = Seq(
+  def uniformDependencySettings = Seq[Sett](
     resolvers ++= Seq(
       "snapshots" at "http://oss.sonatype.org/content/repositories/snapshots"
     , "releases" at "http://oss.sonatype.org/content/repositories/releases"
@@ -12,8 +12,8 @@ object UniformDependencyPlugin extends Plugin {
     , "Twitter Maven" at "http://maven.twttr.com"
     , "Hadoop Releases" at "https://repository.cloudera.com/content/repositories/releases/"
     , "cloudera" at "https://repository.cloudera.com/artifactory/cloudera-repos/"
-)
     , "commbank-releases" at "http://commbank.artifactoryonline.com/commbank/ext-releases-local"
+    )
   )
 
   object depend {
