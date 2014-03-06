@@ -10,9 +10,8 @@ object UniformAssemblyPlugin extends Plugin {
       test in assembly := {},
       (artifact in (Compile, assembly) ~= { art =>
         art.copy(`classifier` = Some("assembly"))
-      }),
-      addArtifact(artifact in (Compile, assembly), assembly)
-    )
+      })
+    ) ++ addArtifact(artifact in (Compile, assembly), assembly)
 
   def defaultMergeStrategy(old: String => MergeStrategy) =  (path: String) => path match {
     case "META-INF/NOTICE.txt" => MergeStrategy.rename
