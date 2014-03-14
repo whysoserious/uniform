@@ -45,7 +45,7 @@ object build extends Build {
   , settings = standardSettings ++ Seq[Sett](
       name := "uniform-thrift"
     , resolvers += Resolver.sonatypeRepo("releases")
-//    , addSbtPlugin("com.twitter" %% "scrooge-sbt-plugin" % "3.12.0")
+    , addSbtPlugin("com.twitter" %% "scrooge-sbt-plugin" % "3.12.3")
     )
   )
 
