@@ -47,7 +47,7 @@ object build extends Build {
     , resolvers += Resolver.sonatypeRepo("releases")
     , addSbtPlugin("com.twitter" %% "scrooge-sbt-plugin" % "3.12.3")
     )
-  )
+  ).dependsOn(dependency)
 
   lazy val assembly = Project(
     id = "assembly"
