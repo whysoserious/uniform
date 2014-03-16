@@ -32,8 +32,8 @@ object UniformDependencyPlugin extends Plugin {
       def scallop = "0.9.3"
       def pegdown = "1.2.1"
       def classutil = "1.0.2"
-      def scrooge = "3.11.2"
-      def bijection = "0.6.0"
+      def scrooge = "3.12.3"
+      def bijection = "0.6.2"
     }
 
     def omnia(project: String, version: String): Seq[ModuleID] =
