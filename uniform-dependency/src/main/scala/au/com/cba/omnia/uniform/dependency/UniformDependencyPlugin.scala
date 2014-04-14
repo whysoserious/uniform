@@ -18,22 +18,22 @@ object UniformDependencyPlugin extends Plugin {
 
   object depend {
     object versions {
-      def hadoop = "2.0.0-mr1-cdh4.3.0"
-      def scalaz = "7.0.5"
-      def specs = "2.2.2"
-      def mockito = "1.9.0"
+      def hadoop     = "2.0.0-mr1-cdh4.3.0"
+      def scalaz     = "7.0.5"
+      def specs      = "2.2.2"
+      def mockito    = "1.9.0"
       def scalacheck = "1.10.1"
-      def jodaTime = "2.1"
+      def jodaTime   = "2.1"
       def nscalaTime = "0.6.0"
-      def scalding = "0.9.0rc15"
-      def algebird = "0.3.0"
-      def log4j = "1.2.17"
-      def slf4j = "1.7.5"
-      def scallop = "0.9.3"
-      def pegdown = "1.2.1"
-      def classutil = "1.0.2"
-      def scrooge = "3.12.3"
-      def bijection = "0.6.2"
+      def scalding   = "0.9.1-cascading26wip3"
+      def algebird   = "0.3.0"
+      def log4j      = "1.2.17"
+      def slf4j      = "1.7.5"
+      def scallop    = "0.9.3"
+      def pegdown    = "1.2.1"
+      def classutil  = "1.0.2"
+      def scrooge    = "3.12.3"
+      def bijection  = "0.6.2"
     }
 
     def omnia(project: String, version: String): Seq[ModuleID] =
