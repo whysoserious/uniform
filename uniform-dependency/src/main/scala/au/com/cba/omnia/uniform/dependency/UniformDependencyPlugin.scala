@@ -25,7 +25,7 @@ object UniformDependencyPlugin extends Plugin {
       def scalacheck = "1.10.1"
       def jodaTime = "2.1"
       def nscalaTime = "0.6.0"
-      def scalding = "0.9.0rc15"
+      def scalding = "0.9.1-cascading26wip3"
       def algebird = "0.3.0"
       def log4j = "1.2.17"
       def slf4j = "1.7.5"
