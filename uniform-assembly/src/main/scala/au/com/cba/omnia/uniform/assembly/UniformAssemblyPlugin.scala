@@ -14,6 +14,7 @@ object UniformAssemblyPlugin extends Plugin {
     ) ++  addArtifact(artifact in (Compile, assembly), assembly)
 
   def defaultMergeStrategy(old: String => MergeStrategy) =  (path: String) => path match {
+    case "META-INF/LICENSE" => MergeStrategy.rename
     case "META-INF/NOTICE.txt" => MergeStrategy.rename
     case "META-INF/LICENSE.txt" => MergeStrategy.rename
     case "META-INF/MANIFEST.MF" => MergeStrategy.discard
