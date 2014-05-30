@@ -1,0 +1,21 @@
+language: scala
+jdk:
+- oraclejdk7
+cache:
+  directories:
+  - $HOME/.ivy2
+  - $HOME/.m2
+install:
+- git clone https://omnia-bamboo:$OMNIA_CI_PASSWORD@github.com/CommBank/ci.git
+- ci/sbt-setup.sh
+- ci/sbt-setup-version.sh
+script:
+- sbt -Dsbt.global.base=$TRAVIS_BUILD_DIR/ci '; test; package'
+- ci/sbt-deploy-ivy.sh
+after_script:
+- rm -rf ci
+- find $HOME/.ivy2 -name "*uniform*" -delete
+env:
+  global:
+  - secure: MZf8kuTlIk0ut+U2O/u5wGqdBam3s48DP6sqjHMZW2DnwlTdTa8luBFrCphtW45GbkJqOX7xpzogcyddOnn2jegsCo1cUgM8DV2QRilkJnydgDyI8PWoB2awIYWgAV5De9J4k7KK/rZiq8u0OMvvvIo8NpOMWQ6qTjpnoYZ3DfQ=
+  - secure: Fx5YvMuicprxu8bgOzaIIGQoy0G9ODHePNc3RonHGRNMrEW+LDjXrs3RPQJ44N0Y/cAU3qTYoJJswDJfVbpU4wclDsCvbn5UDrYIhGQYoxkx8fMO61Ua4OtCpoGq2NqcpvxbPMoObNQQPo1/OfnAbTK4me0kH43jcdSG5kRO5OE=
