@@ -31,3 +31,5 @@ build.number
 
 #temp files
 *~
+
+*/**/credentials.sbt
