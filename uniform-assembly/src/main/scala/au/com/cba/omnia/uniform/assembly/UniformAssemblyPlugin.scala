@@ -11,10 +11,14 @@ object UniformAssemblyPlugin extends Plugin {
       (artifact in (Compile, assembly) ~= { art =>
         art.copy(`classifier` = Some("assembly"))
       })
-    ) ++  addArtifact(artifact in (Compile, assembly), assembly)
+    ) ++ addArtifact(artifact in (Compile, assembly), assembly) ++
+      Seq(javacOptions ++= Seq("-source", "1.6", "-target", "1.6")
+    , (scalacOptions ++= Seq("-target:jvm-1.6")))
+
 
   def defaultMergeStrategy(old: String => MergeStrategy) =  (path: String) => path match {
     case "META-INF/LICENSE" => MergeStrategy.rename
+    case "META-INF/license" => MergeStrategy.rename
     case "META-INF/NOTICE.txt" => MergeStrategy.rename
     case "META-INF/LICENSE.txt" => MergeStrategy.rename
     case "META-INF/MANIFEST.MF" => MergeStrategy.discard
