@@ -1,6 +1,9 @@
 uniform
 =======
 
+[Build Status](https://magnum.travis-ci.com/CommBank/uniform.svg?token=A3xq7fpHLyey1yCrNASy&branch=master)](https://magnum.travis-ci.com/CommBank/uniform)
+[![Gitter chat](https://badges.gitter.im/CommBank.png)](https://gitter.im/CommBank)
+
 ```
 uniform: remaining the same in all cases and at all times; unchanging in form or character.
 ```
