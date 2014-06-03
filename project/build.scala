@@ -8,7 +8,7 @@ object build extends Build {
     Defaults.defaultSettings ++ Seq[Sett](
       organization := "au.com.cba.omnia"
     , sbtPlugin := true
-    , scalaVersion := "2.10.3"
+    , scalaVersion := "2.10.4"
     , scalacOptions := Seq(
         "-deprecation"
       , "-unchecked"
@@ -46,7 +46,7 @@ object build extends Build {
   , settings = standardSettings ++ Seq[Sett](
       name := "uniform-thrift"
     , resolvers += Resolver.sonatypeRepo("releases")
-    , addSbtPlugin("com.twitter" %% "scrooge-sbt-plugin" % "3.12.3")
+    , addSbtPlugin("com.twitter" %% "scrooge-sbt-plugin" % "3.14.1")
     )
   ).dependsOn(dependency)
 
@@ -55,7 +55,7 @@ object build extends Build {
   , base = file("uniform-assembly")
   , settings = standardSettings ++ Seq[Sett](
       name := "uniform-assembly"
-    , addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.10.2")
+    , addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.11.2")
     )
   )
 

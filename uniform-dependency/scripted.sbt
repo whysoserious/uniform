@@ -18,5 +18,5 @@ credentials ++= {
     case c: DirectCredentials => s"Credentials(${c.realm}, ${c.host}, ${c.userName}, ${c.passwd})"
   }.mkString(" credentials ++= Seq(", ",", ")")
   sbtTestDirectory.value.listFiles.flatMap(_.listFiles).map(f => IO.writeLines(f / "credentials.sbt", Seq(out)))
-  credentials.value
+  List()
 }
