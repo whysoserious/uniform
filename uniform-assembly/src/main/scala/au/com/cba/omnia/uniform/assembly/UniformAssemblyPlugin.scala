@@ -11,7 +11,7 @@ object UniformAssemblyPlugin extends Plugin {
       (artifact in (Compile, assembly) ~= { art =>
         art.copy(`classifier` = Some("assembly"))
       })
-    ) ++ addArtifact(artifact in (Compile, assembly), assembly))
+    ) ++ addArtifact(artifact in (Compile, assembly), assembly)
 
 
   def defaultMergeStrategy(old: String => MergeStrategy) =  (path: String) => path match {
