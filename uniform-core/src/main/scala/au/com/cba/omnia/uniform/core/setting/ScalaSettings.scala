@@ -15,7 +15,8 @@ object ScalaSettings extends Plugin {
         "-Ywarn-all",
         "-Xlint",
         "-feature",
-        "-language:_"
+        "-language:_",
+        "-target:jvm-1.6"
       ),
       javacOptions ++= Seq(
         "-source", "1.6",
