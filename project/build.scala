@@ -8,7 +8,7 @@ object build extends Build {
     Defaults.defaultSettings ++ Seq[Sett](
       organization := "au.com.cba.omnia"
     , sbtPlugin := true
-    , scalaVersion := "2.10.4"
+    , scalaVersion := "2.10.3"
     , scalacOptions := Seq(
         "-deprecation"
       , "-unchecked"
