@@ -19,10 +19,11 @@ object UniformDependencyPlugin extends Plugin {
   object depend {
     object versions {
       def hadoop     = "2.0.0-mr1-cdh4.3.0"
-      def scalaz     = "7.0.6"
-      def specs      = "2.3.12"
+      def scalaz     = "7.1.0-M6"
+      def specs      = "2.3.12-scalaz-7.1.0-M6"
+      def scalacheck = "1.11.4" // Needs to align with what is required by scalaz-scalcheck-binding and spec2
+      def shapeless  = "2.0.0-M1" // Needs to align with what is required by spec2
       def mockito    = "1.9.0"
-      def scalacheck = "1.11.4"
       def jodaTime   = "2.3"
       def nscalaTime = "1.2.0"
       def scalding   = "0.10.0"
@@ -65,6 +66,10 @@ object UniformDependencyPlugin extends Plugin {
     def scalaz(version: String = versions.scalaz) = Seq(
       "org.scalaz"               %% "scalaz-core"                   % version,
       "org.scalaz"               %% "scalaz-concurrent"             % version
+    )
+
+    def shapeless(version: String = versions.shapeless) = Seq(
+      "com.chuusai"               % "shapeless_2.10.3"              % version
     )
 
     def testing(specs: String = versions.specs, mockito: String = versions.mockito, scalacheck: String = versions.scalacheck, scalaz: String = versions.scalaz, pegdown: String = versions.pegdown, classutil: String = versions.classutil) = Seq(
