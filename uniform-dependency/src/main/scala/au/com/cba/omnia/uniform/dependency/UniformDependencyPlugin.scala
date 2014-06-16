@@ -32,7 +32,7 @@ object UniformDependencyPlugin extends Plugin {
 
   object depend {
     object versions {
-      def hadoop     = "2.0.0-mr1-cdh4.3.0"
+      def hadoop     = "2.0.0-mr1-cdh4.6.0"
       def scalaz     = "7.1.0-M6"
       def specs      = "2.3.12-scalaz-7.1.0-M6"
       def scalacheck = "1.11.4" // Needs to align with what is required by scalaz-scalcheck-binding and spec2
