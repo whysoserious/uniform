@@ -6,7 +6,8 @@ cache:
   - $HOME/.ivy2
   - $HOME/.m2
 install:
-- git clone https://omnia-bamboo:$OMNIA_CI_PASSWORD@github.com/CommBank/ci.git
+- git clone https://github.com/CommBank/ci.git
+- chmod ugo+x ci/*
 - ci/sbt-setup.sh
 - ci/sbt-setup-version.sh
 script:
@@ -17,5 +18,4 @@ after_script:
 - find $HOME/.ivy2 -name "*uniform*" -delete
 env:
   global:
-  - secure: Gr8bAp0cpXpjh8PRlp5syjDE72RDqzB0GtpPejsDMeDCXDwhuxuDuUWgtk5rfSQokU0oYX+Gj2ERlLoVrxJH9PgFZ9s1JiWs51xdNTL0QgD7xCfwsWmI4qYypqoKypq9GMDrfb818Is0QMmwxpoWv82YM4NtcjQsbU90KljgH1I=
-  - secure: UwTN7YWxBZXisqERLC9v0UsKZ1bxUP+1lNsPZyeE2qz2V5GI17/S3k6psn86X7OiXEs8cP8xFvt5I/44YPc5iQcldhiTMJEg3MBMoYO8Rzyc7OORmklHfK+zxPRYtsXGSE4rZnTd/QAm6owtIl0spvMg/m90ox+9AmYix1nTGX4=
+    secure: hxBTk+wXhsS+kDbYDCumkrecbiKlSjnzqRLcR86BbYpCoqlkepyj7Uu6rPwDLbXEV5Xtz7TfyFm6Q9yN30FtVh/foa7INz3DEOk6b9arJDnn602EUPZmC07N0GO9Zj2bsyjlDMOH0tJGIWGnsf03Hra5Lbvbv9x0IxaYPI4kxVo=
