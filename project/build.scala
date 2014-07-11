@@ -51,6 +51,8 @@ object build extends Build {
   , base = file("uniform-core")
   , settings = standardSettings ++ Seq[Sett](
       name := "uniform-core"
+    , addSbtPlugin("com.typesafe.sbt" % "sbt-site" % "0.8.1")
+    , addSbtPlugin("com.eed3si9n" % "sbt-unidoc" % "0.3.1")
     )
   )
 

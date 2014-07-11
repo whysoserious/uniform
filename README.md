@@ -85,3 +85,33 @@ version in ThisBuild := "0.0.1"
 
 uniqueVersionSettings
 ```
+
+docs
+----
+
+`uniform.docSettings` and `uniform.ghsettings` configure the `sbt-site` and `sbt-unidoc` projects to
+create documentation for publishing under `target/site`. It will take the content from `src/site`
+and also use `unidoc` to generate unified api documentation for the whole project.
+
+
+`project/build.scala`
+
+```
+...
+lazy val all = Project(
+    id = "all"
+  , base = file(".")
+  , settings = uniform.project("test", "au.com.cba.omnia.test") ++
+      uniform.ghsettings ++ uniform.docSettings("https://commbank.github.io/test/latest/api")
+  , aggregate = Seq(sub1)
+  )
+
+lazy val sub1 = Project(
+    id = "sub1"
+  , base = file("sub1")
+  , settings = uniform.project("test-sub1", "au.com.cba.omnia.test.sub1") ++
+      uniform.docSettings("https://commbank.github.io/test/latest/api")
+  )
+...
+```
+
