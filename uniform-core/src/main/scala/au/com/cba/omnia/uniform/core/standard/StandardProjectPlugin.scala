@@ -19,7 +19,7 @@ import sbt._, Keys._
 
 import sbtunidoc.Plugin._, UnidocKeys._
 
-import com.typesafe.sbt.SbtSite._
+import com.typesafe.sbt.SbtSite._, SiteKeys._
 
 import au.com.cba.omnia.uniform.core.setting.ScalaSettings.scala
 import au.com.cba.omnia.uniform.core.version.GitInfo.commit
@@ -61,6 +61,7 @@ object StandardProjectPlugin extends Plugin {
     def ghsettings: Seq[sbt.Setting[_]] =
       unidocSettings ++ site.settings ++ Seq(
         site.addMappingsToSiteDir(mappings in (ScalaUnidoc, packageDoc), "latest/api"),
+        includeFilter in makeSite := "*.html" | "*.css" | "*.png" | "*.jpg" | "*.gif" | "*.js" | "*.swf" | "*.md",
         apiURL <<= (baseDirectory).apply(base => Some(url(s"https://commbank.github.io/${base.getName}/latest/api"))),
         scalacOptions in (ScalaUnidoc, unidoc) <++= (version, baseDirectory).map { (v, base) =>
           val docSourceUrl = s"https://github.com/CommBank/${base.getName}/tree/${commit(base)}/€{FILE_PATH}.scala"
