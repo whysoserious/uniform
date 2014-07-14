@@ -61,7 +61,7 @@ object StandardProjectPlugin extends Plugin {
     def ghsettings: Seq[sbt.Setting[_]] =
       unidocSettings ++ site.settings ++ Seq(
         site.addMappingsToSiteDir(mappings in (ScalaUnidoc, packageDoc), "latest/api"),
-        includeFilter in makeSite := "*.html" | "*.css" | "*.png" | "*.jpg" | "*.gif" | "*.js" | "*.swf" | "*.md",
+        includeFilter in makeSite := "*.html" | "*.css" | "*.png" | "*.jpg" | "*.gif" | "*.js" | "*.swf" | "*.md" | "*.yml",
         apiURL <<= (baseDirectory).apply(base => Some(url(s"https://commbank.github.io/${base.getName}/latest/api"))),
         scalacOptions in (ScalaUnidoc, unidoc) <++= (version, baseDirectory).map { (v, base) =>
           val docSourceUrl = s"https://github.com/CommBank/${base.getName}/tree/${commit(base)}/€{FILE_PATH}.scala"
