@@ -49,6 +49,7 @@ object UniformDependencyPlugin extends Plugin {
       def classutil  = "1.0.5"
       def scrooge    = "3.14.1"
       def bijection  = "0.6.2"
+      def hive       = "0.10.0"
     }
 
     def omnia(project: String, version: String): Seq[ModuleID] =
@@ -75,6 +76,10 @@ object UniformDependencyPlugin extends Plugin {
     def hadoop(version: String = versions.hadoop) = Seq(
       "org.apache.hadoop"        %  "hadoop-client"                 % version        % "provided",
       "org.apache.hadoop"        %  "hadoop-core"                   % version        % "provided"
+    )
+
+    def hive(version: String = versions.hive) = Seq(
+      "org.apache.hive"          % "hive-builtins"                  % version
     )
 
     def scalaz(version: String = versions.scalaz) = Seq(
