@@ -30,11 +30,11 @@ object ScalaSettings extends Plugin {
         "-Xlint",
         "-feature",
         "-language:_",
-        "-target:jvm-1.6"
+        "-target:jvm-1.7"
       ),
       javacOptions ++= Seq(
-        "-source", "1.6",
-        "-target", "1.6"
+        "-source", "1.7",
+        "-target", "1.7"
       )
     )
   }
