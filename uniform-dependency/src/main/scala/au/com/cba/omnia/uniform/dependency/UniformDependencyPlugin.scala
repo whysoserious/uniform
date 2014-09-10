@@ -51,6 +51,7 @@ object UniformDependencyPlugin extends Plugin {
       def scrooge    = "3.14.1"
       def bijection  = "0.6.3"
       def hive       = "0.12.0-cdh5.1.2"
+      def parquet    = "1.2.5-cdh5.1.2"
     }
 
     def omnia(project: String, version: String): Seq[ModuleID] =
@@ -124,6 +125,10 @@ object UniformDependencyPlugin extends Plugin {
     def scrooge(scrooge: String = versions.scrooge, bijection: String = versions.bijection) = Seq(
       "com.twitter"       %% "scrooge-core"                         % scrooge,
       "com.twitter"       %% "bijection-scrooge"                    % bijection
+    )
+
+    def parquet(version: String = versions.parquet) = Seq(
+      "com.twitter"              % "parquet-cascading"              % version     % "provided"
     )
   }
 }
