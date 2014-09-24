@@ -79,7 +79,8 @@ object UniformDependencyPlugin extends Plugin {
     )
 
     def hive(version: String = versions.hive) = Seq(
-      "org.apache.hive"          % "hive-exec"                      % version
+      "org.apache.hive"          % "hive-exec"                      % version,
+      "org.apache.hive"          % "hive-builtins"                  % version
     )
 
     def scalaz(version: String = versions.scalaz) = Seq(
