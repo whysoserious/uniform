@@ -1,6 +1,7 @@
 language: scala
 jdk:
 - oraclejdk7
+sudo: false
 cache:
   directories:
   - $HOME/.ivy2
@@ -11,11 +12,12 @@ install:
 - ci/sbt-setup.sh
 - ci/sbt-setup-version.sh
 script:
-- sbt -Dsbt.global.base=$TRAVIS_BUILD_DIR/ci '; test; package; scripted'
+- sbt -Dsbt.global.base=$TRAVIS_BUILD_DIR/ci '; test; package; scripted' && ci/sbt-deploy-ivy.sh
+  && ci/gh-pages.sh
 after_script:
-- ci/sbt-deploy-ivy.sh
 - rm -rf ci
 - find $HOME/.ivy2 -name "*uniform*" -delete
 env:
   global:
-    secure: hxBTk+wXhsS+kDbYDCumkrecbiKlSjnzqRLcR86BbYpCoqlkepyj7Uu6rPwDLbXEV5Xtz7TfyFm6Q9yN30FtVh/foa7INz3DEOk6b9arJDnn602EUPZmC07N0GO9Zj2bsyjlDMOH0tJGIWGnsf03Hra5Lbvbv9x0IxaYPI4kxVo=
+  - secure: GPsC7QFWTy+yJ0jYvqF3XOMNJ2nuiUL3QUZ/i5cbdrF9FEn2uf3dP6HjZBQs6sPdIAcE34aiu64AMp3hP6bkwltVGFJMRprXBEguBDUHWE4BQoqjoPcd9OyOwVymLnytZYbachGCCCLZ6q84sIaaEyPy6CVNSy4QNScO1eDEBB4=
+  - secure: gmVdhlmQpdAGMLlBzSns6RFsjat7ztPsHZ2L43HeS1S11vjD7DOuewvYO0xcpJh+3l1bPaJEzioMVkn9d0w/gMJec0WxBokIvlD7Fi9LA7Rjc0uxSU+3K5dOyo9+aedt+dKGa/7YZv2qdSsyNYuwk5i39dgNsaBJ6/dh4BwonY0=
