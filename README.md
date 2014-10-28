@@ -10,8 +10,12 @@ uniform: remaining the same in all cases and at all times; unchanging in form or
 
 An sbt plugin for maintaining uniform approach to building cba components.
 
+[Scaladoc](https://commbank.github.io/maestro/latest/api/index.html)
+
 usage
 -----
+
+See https://commbank.github.io/uniform/index.html for the latest version number.
 
 `uniform` helps provide a consistent set of scala settings across projects.
 
