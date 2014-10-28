@@ -1,0 +1,32 @@
+---
+layout: default
+title: Uniform
+---
+
+Uniform
+=======
+
+Data Pipelines that are well typed and enforce good convention
+
+
+* [Readme](https://github.com/CommBank/uniform/)
+* [Scaladoc](/uniform/latest/api/index.html)
+
+The latest version is `{{ site.releaseVersion }}`.
+
+Usage
+-----
+
+Add the following to your plugins.sbt, including or excluding plugins as needed.
+
+```
+val uniformVersion = "{{ site.releaseVersion }}"
+
+addSbtPlugin("au.com.cba.omnia" % "uniform-core"       % uniformVersion)
+
+addSbtPlugin("au.com.cba.omnia" % "uniform-dependency" % uniformVersion)
+
+addSbtPlugin("au.com.cba.omnia" % "uniform-thrift"     % uniformVersion)
+
+addSbtPlugin("au.com.cba.omnia" % "uniform-assembly"   % uniformVersion)
+```

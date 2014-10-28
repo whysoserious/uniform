@@ -1,0 +1,5 @@
+name: uniform
+exclude: [Gemfile]
+markdown: kramdown
+
+releaseVersion:  "0.5.0-20141028233152-2a611eb"
