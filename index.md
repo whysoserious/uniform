@@ -6,7 +6,7 @@ title: Uniform
 Uniform
 =======
 
-Data Pipelines that are well typed and enforce good convention
+An sbt plugin for maintaining uniform approach to building cba components.
 
 
 * [Readme](https://github.com/CommBank/uniform/)
