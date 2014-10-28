@@ -15,6 +15,10 @@
 import sbt._
 import Keys._
 
+import sbtunidoc.Plugin._, UnidocKeys._
+
+import com.typesafe.sbt.SbtSite._, SiteKeys._
+
 object build extends Build {
   type Sett = sbt.Def.Setting[_]
 
@@ -34,7 +38,7 @@ object build extends Build {
       , "-language:_"
       , "-target:jvm-1.6"
       )
-    )
+    ) ++ docSettings
 
   lazy val uniform = Project(
     id = "uniform"
@@ -42,7 +46,7 @@ object build extends Build {
   , settings = standardSettings ++ Seq[Sett](
       name := "uniform"
     , publishArtifact := false
-    )
+    ) ++ ghsettings
   , aggregate = Seq(core, thrift, assembly, dependency)
   )
 
@@ -81,5 +85,21 @@ object build extends Build {
   , settings = standardSettings ++ Seq[Sett](
       name := "uniform-dependency"
     )
+  )
+
+  def ghsettings: Seq[sbt.Setting[_]] =
+    unidocSettings ++ site.settings ++ Seq(
+      site.addMappingsToSiteDir(mappings in (ScalaUnidoc, packageDoc), "latest/api"),
+      includeFilter in makeSite := "*.html" | "*.css" | "*.png" | "*.jpg" | "*.gif" | "*.js" | "*.swf" | "*.md" | "*.yml",
+      apiURL <<= (baseDirectory).apply(base => Some(url(s"https://commbank.github.io/${base.getName}/latest/api"))),
+      scalacOptions in (ScalaUnidoc, unidoc) <++= (version, baseDirectory).map { (v, base) =>
+        val docSourceUrl = s"https://github.com/CommBank/uniform/blob/master/€{FILE_PATH}.scala"
+        Seq("-sourcepath", base.getAbsolutePath, "-doc-source-url", docSourceUrl)
+      }
+    )
+
+  def docSettings : Seq[sbt.Setting[_]] = Seq(
+    autoAPIMappings := true,
+    apiURL := Some(url("https://github.com/CommBank/uniform"))
   )
 }
