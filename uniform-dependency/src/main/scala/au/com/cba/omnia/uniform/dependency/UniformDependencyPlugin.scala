@@ -27,6 +27,7 @@ object UniformDependencyPlugin extends Plugin {
     , "Hadoop Releases" at "https://repository.cloudera.com/content/repositories/releases/"
     , "cloudera" at "https://repository.cloudera.com/artifactory/cloudera-repos/"
     , "commbank-releases" at "http://commbank.artifactoryonline.com/commbank/ext-releases-local"
+    , "commbank-releases-private" at "http://commbank.artifactoryonline.com/commbank/libs-releases-local"
     )
   )
 
