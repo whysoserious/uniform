@@ -33,7 +33,7 @@ object UniformDependencyPlugin extends Plugin {
 
   object depend {
     object versions {
-      def hadoop     = "2.3.0-mr1-cdh5.1.2"
+      def hadoop     = "2.5.0-mr1-cdh5.2.0"
       def scalaz     = "7.1.0-M6"
       def specs      = "2.3.12-scalaz-7.1.0-M6"
       def scalacheck = "1.11.4"   // Needs to align with what is required by scalaz-scalcheck-binding and spec2
@@ -50,8 +50,8 @@ object UniformDependencyPlugin extends Plugin {
       def classutil  = "1.0.5"
       def scrooge    = "3.14.1"
       def bijection  = "0.6.3"
-      def hive       = "0.12.0-cdh5.1.2"
-      def parquet    = "1.2.5-cdh5.1.2"
+      def hive       = "0.13.1-cdh5.2.0"
+      def parquet    = "1.5.0-cdh5.2.0"
     }
 
     def omnia(project: String, version: String): Seq[ModuleID] =
