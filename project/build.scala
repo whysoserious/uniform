@@ -26,7 +26,7 @@ object build extends Build {
     Defaults.defaultSettings ++ Seq[Sett](
       organization := "au.com.cba.omnia"
     , sbtPlugin := true
-    , scalaVersion := "2.10.3"
+    , scalaVersion := "2.10.4"
     , scalacOptions := Seq(
         "-deprecation"
       , "-unchecked"
@@ -38,6 +38,7 @@ object build extends Build {
       , "-language:_"
       , "-target:jvm-1.6"
       )
+        , updateOptions := updateOptions.value.withCachedResolution(true)
     ) ++ docSettings
 
   lazy val uniform = Project(
