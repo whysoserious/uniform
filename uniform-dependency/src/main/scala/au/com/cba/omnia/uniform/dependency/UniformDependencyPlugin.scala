@@ -41,15 +41,15 @@ object UniformDependencyPlugin extends Plugin {
       def mockito    = "1.9.0"
       def jodaTime   = "2.3"
       def nscalaTime = "1.2.0"
-      def scalding   = "0.12.0rc5"
-      def algebird   = "0.6.0"
+      def scalding   = "0.12.0"
+      def algebird   = "0.7.1"
       def log4j      = "1.2.17"
       def slf4j      = "1.7.5"
       def scallop    = "0.9.5"
       def pegdown    = "1.4.2"
       def classutil  = "1.0.5"
       def scrooge    = "3.14.1"
-      def bijection  = "0.6.2"
+      def bijection  = "0.6.3"
       def hive       = "0.10.0-cdh4.6.0"
     }
 
