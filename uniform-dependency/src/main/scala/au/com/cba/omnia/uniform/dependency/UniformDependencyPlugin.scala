@@ -28,29 +28,31 @@ object UniformDependencyPlugin extends Plugin {
     , "cloudera" at "https://repository.cloudera.com/artifactory/cloudera-repos/"
     , "commbank-releases" at "http://commbank.artifactoryonline.com/commbank/ext-releases-local"
     , "commbank-releases-private" at "https://commbank.artifactoryonline.com/commbank/libs-releases-local"
+    , "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
     )
   )
 
   object depend {
     object versions {
-      def hadoop     = "2.0.0-mr1-cdh4.6.0"
-      def scalaz     = "7.1.0-M6"
-      def specs      = "2.3.12-scalaz-7.1.0-M6"
-      def scalacheck = "1.11.4" // Needs to align with what is required by scalaz-scalcheck-binding and spec2
-      def shapeless  = "2.0.0-M1" // Needs to align with what is required by spec2
-      def mockito    = "1.9.0"
-      def jodaTime   = "2.3"
-      def nscalaTime = "1.2.0"
-      def scalding   = "0.12.0"
-      def algebird   = "0.7.1"
-      def log4j      = "1.2.17"
-      def slf4j      = "1.7.5"
-      def scallop    = "0.9.5"
-      def pegdown    = "1.4.2"
-      def classutil  = "1.0.5"
-      def scrooge    = "3.14.1"
-      def bijection  = "0.6.3"
-      def hive       = "0.10.0-cdh4.6.0"
+      def hadoop       = "2.0.0-mr1-cdh4.6.0"
+      def scalaz       = "7.1.0"
+      def scalazStream = "0.5a"      // Needs to align with what is required by specs2
+      def specs        = "2.4.13"
+      def scalacheck   = "1.11.4"    // Needs to align with what is required by scalaz-scalacheck-binding and specs2
+      def shapeless    = "2.0.0-M1"  // Needs to align with what is required by specs2
+      def mockito      = "1.9.0"
+      def jodaTime     = "2.3"
+      def nscalaTime   = "1.2.0"
+      def scalding     = "0.12.0"
+      def algebird     = "0.7.1"
+      def log4j        = "1.2.17"
+      def slf4j        = "1.7.5"
+      def scallop      = "0.9.5"
+      def pegdown      = "1.4.2"
+      def classutil    = "1.0.5"
+      def scrooge      = "3.14.1"
+      def bijection    = "0.6.3"
+      def hive         = "0.10.0-cdh4.6.0"
     }
 
     def omnia(project: String, version: String): Seq[ModuleID] =
@@ -87,6 +89,10 @@ object UniformDependencyPlugin extends Plugin {
     def scalaz(version: String = versions.scalaz) = Seq(
       "org.scalaz"               %% "scalaz-core"                   % version,
       "org.scalaz"               %% "scalaz-concurrent"             % version
+    )
+
+    def scalazStream(version: String = versions.scalazStream) = Seq(
+      "org.scalaz.stream"        %% "scalaz-stream"                 % version
     )
 
     def shapeless(version: String = versions.shapeless) = Seq(
